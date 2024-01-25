@@ -64,16 +64,16 @@ df = spark.readStream \
 # Displaying stream: Show the incoming streaming data for visualization and debugging purposes
 df.display()
 
-# Write stream to Hive table in Parquet format
-checkpoint_location = "/mnt/streaming/checkpoints/"
-query_name = "streaming_query"
+# # Write stream to Hive table in Parquet format
+# checkpoint_location = "/mnt/streaming/checkpoints/"
+# query_name = "streaming_query"
 
 
-# Write stream to Hive table in Parquet format
-df.writeStream \
-    .format("parquet") \
-    .option("path", "/mnt/streaming/streaming.bronze/") \
-    .option("checkpointLocation", "/mnt/streaming/checkpoints/") \
-    .trigger(processingTime="60 seconds") \
-    .start() \
-    .awaitTermination()
+# # Write stream to Hive table in Parquet format
+# df.writeStream \
+#     .format("parquet") \
+#     .option("path", "/mnt/streaming/streaming.bronze/") \
+#     .option("checkpointLocation", "/mnt/streaming/weather/") \
+#     .trigger(processingTime="10 seconds") \
+#     .start() \
+#     .awaitTermination()
